@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nagp-order-deployment
+  labels:
+    app: nagp-order
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nagp-order
+  template:
+    metadata:
+      labels:
+        app: nagp-order
+    spec: 
+      containers:
+      - name: nagp-order
+        image: jagratigoyal/order
+        ports:
+        - containerPort: 8085
