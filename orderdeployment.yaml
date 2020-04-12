@@ -16,12 +16,6 @@ spec:
     spec: 
       containers:
       - name: nagp-order
-        image: jagratigoyal/ass3order:tag2
-        env:
-         - name: JAEGER_HOST
-           valueFrom:
-            configMapKeyRef:
-             name: app-env-config-url
-             key: JAEGER_HOST
+        image: jagratigoyal/order
         ports:
         - containerPort: 8085
