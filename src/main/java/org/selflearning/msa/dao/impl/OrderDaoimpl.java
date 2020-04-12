@@ -29,7 +29,7 @@ public class OrderDaoimpl implements OrderDao{
 		orders.put("2", order2List);
 	}
 
-	public ResultDTO getOrderByUserid(String userId) {
+	public List<OrderDTO> getOrderByUserid(String userId) {
 		List<Order> result = null;
 		List<OrderDTO> orderDtoList = new ArrayList<>();
 		ResultDTO resultDto = null;
@@ -45,6 +45,6 @@ public class OrderDaoimpl implements OrderDao{
 			}
 			resultDto.setOrders(orderDtoList);
 		}
-		return resultDto;
+		return orderDtoList;
 	}
 }

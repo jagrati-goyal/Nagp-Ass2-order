@@ -25,13 +25,15 @@ public class OrderController {
 	@ResponseBody
 	public ResultDTO getOrderByUserId(@PathVariable String userId) {
 		LOG.info("Inside order service");
-		ResultDTO result = orderService.getOrderbyUserId(userId);
+		List<OrderDTO> result = orderService.getOrderbyUserId(userId);
+		ResultDTO dto = new ResultDTO();
 		if (null != result) {
+			dto.setOrders(result);
 			LOG.info("Order with user id {} is present ",userId);
-			LOG.info("Result {} ", result.getOrders());
+			LOG.info("Result {} ", result);
 		} else {
 			LOG.info("Order with user id " + userId + " not found");
 		}
-		return result;
+		return dto;
 	}
 }
